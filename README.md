@@ -2,6 +2,10 @@
 ---
 ### Tämä projekti on AT00BY06-3013 IoT:n ja sulautettujen järjestelmien soveltaminen -kurssin lopputehtävä, jossa aiemmin toteutettu vedenkorkeuden sekä lämpötila–/kosteusmittausjärjestelmä tuotteistetaan kokonaiseksi sovellukseksi.
 ---
+
+<br>
+<br>
+
 ### Järjestelmään kuuluu:
 •	Laitteisto (Raspberry Pi Pico W)
 •	Laitekoodi (MicroPython)
@@ -10,12 +14,19 @@
 •	Frontend (HTML + CSS + JavaScript + Google Charts)
 Frontista voidaan sekä ohjata Picoon kytkettyä pumppua (Päälle / Pois Päältä) että visualisoida kerättyä anturidataa.
 
+<br>
+
 ## 1. Järjestelmän arkkitehtuuri
+
+<br>
+
 ### 1.1 Laitteisto (Raspberry Pi Pico W)
 __Raspberry Pi Pico W lukee:__
 •	vedenkorkeuden (potentiometri B10K → ADC)
 •	lämpötilan (DHT11)
 •	kosteuden (DHT11)
+
+<br>
 
 __Laite:__
 1.	Kalibroi vedenkorkeuden (0 % / 100 %) käyttäjän ohjeiden mukaan.
@@ -27,11 +38,15 @@ GET pump_control.php?get=1
 6.	Ohjaa pumppua (rele / GPIO) ja Pico W:n sisäistä LEDiä pumpun tilan mukaan.
 ### 1.2 Backend (PHP)
 
+<br>
+
 __Backend koostuu tiedostoista:__
 - index.php
     - Tehtävät:
         1. Kokoaa HTML:n kasaan
 <br>
+<br>
+
 - pump_control.php
     - Tehtävät:
         1. Vastaa kutsuihin 
@@ -40,6 +55,9 @@ __Backend koostuu tiedostoista:__
         2. Tallentaa pumpun tilan mariaDB-tietokantaan (sisältö: on tai off)
         3. Vastaa tilakyselyihin 
             - pump_control.php?get=1
+
+<br>
+
 ### 1.3 Tietovarasto (ThingSpeak)
 __ThingSpeak-kanava tallentaa:__
 |Kenttä|Arvo|
@@ -79,6 +97,9 @@ __Muotoilu:__
 <br>
 
 ## 2. Käyttöönotto-ohje
+
+<br>
+
 ### 2.1 ThingSpeak
 1.	Luo uusi kanava, jossa 3 kenttää.
 2.	Aseta API-avaimet main.py-tiedostoon.
@@ -105,6 +126,9 @@ d.	backendin osoite `pump_control.php`
 <br>
 
 ## 3. Käyttöohje
+
+<br>
+
 ### 3.1 Kalibrointi Pico W:ssä
 •	Ensimmäisellä käynnistyksellä laite pyytää asettamaan varren ala- ja ylärajoille (vesiastian 0 % ja 100 % rajat)
 •	Arvot tallentuvat calib.json-tiedostoon.
@@ -117,8 +141,12 @@ d.	backendin osoite `pump_control.php`
 •	Painikkeilla ohjataan pumppua.
 •	Discord-painikkeella voi lähettää viimeisimmän mittauksen suoraan käyttäjän Discord palvelimelle.
 <br>
+<br>
 
 ## 4. Testausraportti
+
+<br>
+
 ### 4.1 Pico W
 Testi|Kuvaus|Tulos
 |---|---|---|
@@ -142,6 +170,8 @@ Aikavälin vaihto 24h ↔ 30vrk|Kaavio päivittyy|OK
 Pumpun tilan polling|Teksti päivittyy|OK
 “Pumppu päälle / pois”|Backend → txt → frontti|OK
 Discord-lähetys|toimii reCAPTCHA:n kanssa|OK
+
+<br>
 
 ## 5. Tunnetut rajoitukset
 - Pumpun tila ei tallennu historiaan (vain pumpun tilan hakeminen tietokannasta).
