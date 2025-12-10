@@ -1,5 +1,4 @@
-# Vedenkorkeusmittari – Pico W + DHT11 + potentiometri + ThingSpeak
----
+# Vedenkorkeusmittari - Pico W + DHT11 + potentiometri + ThingSpeak
 ### Tämä projekti on AT00BY06-3013 IoT:n ja sulautettujen järjestelmien soveltaminen -kurssin lopputehtävä, jossa aiemmin toteutettu vedenkorkeuden sekä lämpötila–/kosteusmittausjärjestelmä tuotteistetaan kokonaiseksi sovellukseksi.
 ---
 
@@ -7,11 +6,11 @@
 <br>
 
 ### Järjestelmään kuuluu:
-•	Laitteisto (Raspberry Pi Pico W)
-•	Laitekoodi (MicroPython)
-•	Backend (PHP)
-•	Tietovarasto (Pilvipalvelu ThingSpeak +  tiedostopohjainen (txt))
-•	Frontend (HTML + CSS + JavaScript + Google Charts)
+- Laitteisto (Raspberry Pi Pico W)
+- Laitekoodi (MicroPython)
+- Backend (PHP)
+- Tietovarasto (Pilvipalvelu ThingSpeak +  tiedostopohjainen (txt))
+- Frontend (HTML + CSS + JavaScript + Google Charts)
 Frontista voidaan sekä ohjata Picoon kytkettyä pumppua (Päälle / Pois Päältä) että visualisoida kerättyä anturidataa.
 
 <br>
@@ -22,9 +21,9 @@ Frontista voidaan sekä ohjata Picoon kytkettyä pumppua (Päälle / Pois Pääl
 
 ### 1.1 Laitteisto (Raspberry Pi Pico W)
 __Raspberry Pi Pico W lukee:__
-•	vedenkorkeuden (potentiometri B10K → ADC)
-•	lämpötilan (DHT11)
-•	kosteuden (DHT11)
+- vedenkorkeuden (potentiometri B10K → ADC)
+- lämpötilan (DHT11)
+- kosteuden (DHT11)
 
 <br>
 
@@ -68,16 +67,18 @@ field3|vedenkorkeus (%)
 
 <br>
 
-Frontend hakee datan JSON-rajapinnasta: https://api.thingspeak.com/channels/<channel_id>/feeds.json?api_key=<read_key>&results=... 
+Frontend hakee datan JSON-rajapinnasta: https://api.thingspeak.com/channels/<channel_id>/feeds.json?api_key=<read_key>&results=...
+
+<br>
 
 ### 1.4 Frontend (HTML + JS)
 
 <br>
 
 __Frontend koostuu:__
-•	`index.php`
-•	`googlechart.js`
-•	`googlechart_style.css`
+- `index.php`
+- `googlechart.js`
+- `googlechart_style.css`
 
 <br> 
 
@@ -118,10 +119,10 @@ __Muotoilu:__
 1.	Flashaa MicroPython.
 2.	Kopioi main.py ja näytinkirjastot.
 3.	Aseta:
-a.	SSID `Pico/main.py`
-b.	salasana `Pico/main.py`
-c.	ThingSpeak API-key `googlechart.js`
-d.	backendin osoite `pump_control.php`
+    - SSID `Pico/main.py`
+    - salasana `Pico/main.py`
+    - ThingSpeak API-key `googlechart.js`
+    - backendin osoite `pump_control.php`
 4.	Käynnistä laite → sen pitäisi heti kalibroinnin jälkeen alkaa lähettää dataa.
 <br>
 
